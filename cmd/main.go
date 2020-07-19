@@ -1,4 +1,4 @@
-// Copyright 2020 The Operator-SDK Authors
+// Copyright 2019 The Operator-SDK Authors
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -12,16 +12,18 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package olm
+package main
 
 import (
-	"testing"
-
-	. "github.com/onsi/ginkgo"
-	. "github.com/onsi/gomega"
+	"github.com/operator-framework/operator-sdk/cmd/scorecard"
+	log "github.com/sirupsen/logrus"
 )
 
-func TestOlm(t *testing.T) {
-	RegisterFailHandler(Fail)
-	RunSpecs(t, "Olm Suite")
+func main() {
+	scorecardCmd := scorecard.NewCmd()
+
+	if err := scorecardCmd.Execute(); err != nil {
+		log.Error(err)
+	}
+
 }
