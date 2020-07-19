@@ -25,7 +25,7 @@ import (
 	"github.com/spf13/cobra"
 	"github.com/spf13/cobra/doc"
 
-	"github.com/operator-framework/operator-sdk/cmd/operator-sdk/cli"
+	"github.com/operator-framework/operator-sdk/cmd/scorecard"
 )
 
 const fmTemplate = `---
@@ -39,13 +39,8 @@ func main() {
 		log.Fatalf("Failed to get current directory: %v", err)
 	}
 
-	legacyDocPath := filepath.Join(currentDir, "website", "content", "en", "docs", "cli", "ansible-helm")
-	legacyRoot := cli.GetCLIRoot()
-	legacyRoot.DisableAutoGenTag = true
-	recreateDocDir(legacyRoot, legacyDocPath)
-
 	newDocPath := filepath.Join(currentDir, "website", "content", "en", "docs", "cli", "golang")
-	_, newRoot := cli.GetPluginsCLIAndRoot()
+	_, newRoot := scorecard.NewCmd()
 	newRoot.DisableAutoGenTag = true
 	recreateDocDir(newRoot, newDocPath)
 }
