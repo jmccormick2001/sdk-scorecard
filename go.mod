@@ -17,7 +17,7 @@ require (
 	github.com/go-logr/logr v0.1.0
 	github.com/go-logr/zapr v0.1.1
 	github.com/golang/groupcache v0.0.0-20191027212112-611e8accdfc9 // indirect
-	github.com/gorilla/handlers v0.0.0-20150720190736-60c7bfde3e33 // indirect
+	github.com/gorilla/handlers v1.3.0 // indirect
 	github.com/gorilla/mux v1.7.2 // indirect
 	github.com/hashicorp/golang-lru v0.5.3 // indirect
 	github.com/mattn/go-isatty v0.0.12
